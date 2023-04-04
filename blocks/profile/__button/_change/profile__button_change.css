@@ -1,0 +1,25 @@
+.profile__button_change {
+    width: 24px;
+    height: 24px;
+    background-image: url(/images/Vector.svg);
+    background-color: #000000;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid #FFFFFF;
+    position: absolute;
+    top: 15px;
+    right: 0;
+    padding: 0;
+}
+
+.profile__button_change:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 767px) {
+    .profile__button_change {
+        top: 4px;
+        right: 14px;
+    }
+}

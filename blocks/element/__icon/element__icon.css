@@ -1,0 +1,16 @@
+.element__icon {
+    background-image: url(/images/Group.jpg);
+    border: none;
+    width: 22px;
+    height: 19px;
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+}
+.element__icon:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+.element__icon:active {
+    background-image: url(/images/Union.jpg);
+}
