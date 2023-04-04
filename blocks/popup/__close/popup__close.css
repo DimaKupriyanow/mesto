@@ -1,5 +1,5 @@
 .popup__close {
-    background: url(/images/Close\ Icon.png);
+    background: url(../../../images/Close\ Icon.png);
     border: none;
     position: absolute;
     top: -45px;
