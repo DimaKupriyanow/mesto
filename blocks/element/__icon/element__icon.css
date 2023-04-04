@@ -1,5 +1,5 @@
 .element__icon {
-    background-image: url(/images/Group.jpg);
+    background-image: url(../../../images/Group.jpg);
     border: none;
     width: 22px;
     height: 19px;
@@ -12,5 +12,5 @@
     cursor: pointer;
 }
 .element__icon:active {
-    background-image: url(/images/Union.jpg);
+    background-image: url(../../../images/Union.jpg);
 }
