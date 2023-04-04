@@ -1,4 +1,4 @@
-.popup__input_class {
+.popup__input-class {
     width: 358px;
     height: 27px;
     margin-top: 30px;
@@ -9,12 +9,12 @@
     line-height: 17px;
 }
 
-.popup__input_class:first-of-type {
+.popup__input-class:first-of-type {
     margin-top: 0;
 }
 
 @media screen and (max-width: 767px) {
-    .popup__input_class {
+    .popup__input-class {
         width: 238px;
     }
 }

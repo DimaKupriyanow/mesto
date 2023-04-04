@@ -1,4 +1,4 @@
-.profile__button_change {
+.profile__button-change {
     width: 24px;
     height: 24px;
     background-image: url(../../../../images/Vector.svg);
@@ -12,13 +12,13 @@
     padding: 0;
 }
 
-.profile__button_change:hover {
+.profile__button-change:hover {
     opacity: 0.8;
     cursor: pointer;
 }
 
 @media screen and (max-width: 767px) {
-    .profile__button_change {
+    .profile__button-change {
         top: 4px;
         right: 14px;
     }
