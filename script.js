@@ -9,27 +9,27 @@ const infoName = document.querySelector('.profile__title');
 const infoClass = document.querySelector('.profile__subtitle');
 
 
-changeButton.addEventListener('click', () => {
-    moreInfoPopup.classList.add('popup_opened');
-    inputName.value = infoName.textContent;
-    inputClass.value = infoClass.textContent;
-});
-moreInfoClose.addEventListener('click', () => {
-    moreInfoPopup.classList.remove('popup_opened');
-    inputName.value = infoName.textContent;
-    inputClass.value = infoClass.textContent;
+changeButton.addEventListener("click", () => {
+  moreInfoPopup.classList.add("popup_opened");
+  inputName.value = infoName.textContent;
+  inputClass.value = infoClass.textContent;
 });
 
-saveInfoPopupForm.addEventListener('submit', (event) => {
-    event.preventDefault();
+moreInfoClose.addEventListener("click", () => {
+  moreInfoPopup.classList.remove("popup_opened");
+  inputName.value = infoName.textContent;
+  inputClass.value = infoClass.textContent;
+});
 
-    infoName.textContent = inputName.value;
+saveInfoPopupForm.addEventListener("submit", (event) => {
+  event.preventDefault();
 
-    infoClass.textContent = inputClass.value;
+  infoName.textContent = inputName.value;
 
-    moreInfoPopup.classList.remove('popup_opened');
+  infoClass.textContent = inputClass.value;
 
-})
+  moreInfoPopup.classList.remove("popup_opened");
+});
   
 
 
