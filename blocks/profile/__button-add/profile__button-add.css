@@ -7,10 +7,8 @@
     background-repeat: no-repeat;
     border: 2px solid #FFFFFF;
     border-radius: 2px;
-    position: absolute;
-    right: 0;
-    top: 35px;
     padding: 0;
+    margin-left: auto;
 }
 
 .profile__button-add:hover {
@@ -18,10 +16,15 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 1023px) {
+    .profile__button-add {
+        width: 100px;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .profile__button-add {
         width: 282px;
-        bottom: 0;
-        top: auto;
+        background-size: 16px 16px;
     }
 }

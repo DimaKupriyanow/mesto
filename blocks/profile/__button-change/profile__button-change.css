@@ -6,9 +6,6 @@
     background-position: center;
     background-repeat: no-repeat;
     border: 1px solid #FFFFFF;
-    position: absolute;
-    top: 15px;
-    right: 0;
     padding: 0;
 }
 
@@ -19,7 +16,8 @@
 
 @media screen and (max-width: 767px) {
     .profile__button-change {
-        top: 4px;
-        right: 14px;
+        width: 18px;
+        height: 18px;
+        margin: 0 19px 0 10px;
     }
 }

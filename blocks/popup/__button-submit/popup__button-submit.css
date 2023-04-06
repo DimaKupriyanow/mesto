@@ -5,9 +5,11 @@
     margin: 48px auto 37px;
     color: #FFFFFF;
     border-radius: 2px;
+    border: 0;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    padding: 0;
 }
 
 .popup__button-submit:hover {
@@ -22,5 +24,6 @@
         height: 46px;
         font-size: 14px;
         line-height: 17px;
+        margin: 45px auto 25px;
     }
 }
