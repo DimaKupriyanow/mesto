@@ -2,7 +2,7 @@ const changeButton = document.querySelector('.profile__button-change');
 const moreInfoPopup = document.querySelector('.popup_type_more-info');
 const moreInfoClose = moreInfoPopup.querySelector('.popup__close');
 const inputName = moreInfoPopup.querySelector('.popup__input-name');
-const inputClass = moreInfoPopup.querySelector('.popup__input-name_more');
+const inputClass = moreInfoPopup.querySelector('.popup__input-name_more_heading');
 const saveInfoPopupSubmit = moreInfoPopup.querySelector('.popup__button-submit');
 const saveInfoPopupForm = moreInfoPopup.querySelector('.popup__container');
 const infoName = document.querySelector('.profile__title');
@@ -52,7 +52,8 @@ function saveFormSubmit (event) {
   event.preventDefault();
   infoName.textContent = inputName.value;
   infoClass.textContent = inputClass.value;
-  moreInfoPopup.classList.remove("popup_opened");
+  closeFormSubmit ();
+  // moreInfoPopup.classList.remove("popup_opened");
 };
 
 
