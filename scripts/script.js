@@ -9,6 +9,40 @@ const infoName = document.querySelector('.profile__title');
 const infoClass = document.querySelector('.profile__subtitle');
 
 
+  
+// первый попап
+
+//changeButton.addEventListener("click", handleFormSubmit);
+//function handleFormSubmit (evt) {
+  //evt.preventDefault(); 
+
+  changeButton.addEventListener("click", () => {
+    openPopup(changeButton); 
+  moreInfoPopup.classList.add("popup_opened");
+  inputName.value = infoName.textContent; 
+  inputClass.value = infoClass.textContent; 
+});
+
+// moreInfoClose.addEventListener("click", closeFormSubmit);
+// function closeFormSubmit () {
+//   moreInfoPopup.classList.remove("popup_opened");
+// };
+
+saveInfoPopupForm.addEventListener("submit", saveFormSubmit);
+function saveFormSubmit (event) {
+  event.preventDefault();
+  infoName.textContent = inputName.value;
+  infoClass.textContent = inputClass.value;
+  closePopup(moreInfoPopup);
+};
+
+
+
+
+
+
+
+
 
 // changeButton.addEventListener("click", () => {
 //   moreInfoPopup.classList.add("popup_opened");
@@ -32,33 +66,4 @@ const infoClass = document.querySelector('.profile__subtitle');
 //   })
 //   moreInfoPopup.classList.remove("popup_opened")
 // });
-  
-
-changeButton.addEventListener("click", handleFormSubmit);
-function handleFormSubmit (evt) {
-  evt.preventDefault(); 
-  moreInfoPopup.classList.add("popup_opened");
-  inputName.value = infoName.textContent; 
-  inputClass.value = infoClass.textContent; 
-};
-
-moreInfoClose.addEventListener("click", closeFormSubmit);
-function closeFormSubmit () {
-  moreInfoPopup.classList.remove("popup_opened");
-};
-
-saveInfoPopupForm.addEventListener("submit", saveFormSubmit);
-function saveFormSubmit (event) {
-  event.preventDefault();
-  infoName.textContent = inputName.value;
-  infoClass.textContent = inputClass.value;
-  closeFormSubmit ();
-  // moreInfoPopup.classList.remove("popup_opened");
-};
-
-
-
-
-
-
 
