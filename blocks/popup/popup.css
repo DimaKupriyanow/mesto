@@ -10,5 +10,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    visibility: hidden;
+    display: none;
+    /* visibility: hidden;
+    opacity: 0; 
+    transition:  0.3s ease-in-out; */
+    
 } 
