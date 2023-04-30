@@ -180,11 +180,11 @@ saveInfoPopupFormItem.addEventListener("submit", saveFormSubmitImage);
 
 // const template = document.getElementById('images-card');
 // const popupImage = document.querySelector('.popup__container-image');
-const popupMoreImage = document.querySelector('.popup_type_more_image');
+const popupMoreImage = document.querySelector('.popup_type_more-image');
 // const popupTitleImage = popupMoreImage.querySelector('.popup__title-image');
 // const buttonAddImage = document.querySelector('.buttonAddImage');               
 // let image = document.querySelector('.image');
-// let imageTitle = document.querySelector('.popup_title-image');
+// let imageTitle = document.querySelector('.popup__title-image');
 // const elementImageAdd = document.querySelector('.element__image_add');
 const closePopupImage = document.querySelector('.popup__close-image');
 
