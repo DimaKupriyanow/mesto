@@ -88,12 +88,25 @@ const handleButton = () => {
   imageElement.remove();
 };
 
+
+
+const popupImage = document.querySelector('.popup__container-image');
+// const image = popupImage.querySelector('.image');
+
+myImage.addEventListener('click', () =>  { 
+
+    popupMoreImage.querySelectorAll('element__image_add').src = imageData.link
+    popupMoreImage.querySelectorAll('element__title').textContent = imageData.name
+    popupMoreImage.classList.add('popup_opened')
+    });
+
 likeButton.addEventListener("click", handleLike);
 deleteButton.addEventListener("click", handleButton);
-
+    
   return imageElement;
 
 };
+
 
 const renderImageElement = (imageElement) => {
 imageGrid.prepend(imageElement);
@@ -102,6 +115,7 @@ imageGrid.prepend(imageElement);
 initialCards.forEach((image) => {
 renderImageElement(createImageElement(image));
 });
+
 
 
 
@@ -116,6 +130,8 @@ const inputItem = document.querySelector(".popup__input-name_item");
 const inputLinkItem = document.querySelector(".popup__input-name_more_link");
 const saveInfoPopupFormItem = document.querySelector(".popup__container_item");
 const moreInfoCloseItem = document.querySelector(".popup__close_item");
+
+
 
 const openPopup = (popup) => {
 popup.classList.add("popup_opened");
@@ -162,93 +178,63 @@ saveInfoPopupFormItem.addEventListener("submit", saveFormSubmitImage);
 
 //popup 3 который должен открывать картинку 
 
-const template = document.getElementById('images-card');
-const popupImage = document.querySelector('.popup__container-image');
+// const template = document.getElementById('images-card');
+// const popupImage = document.querySelector('.popup__container-image');
 const popupMoreImage = document.querySelector('.popup_type_more_image');
-const popupTitleImage = popupMoreImage.querySelector('.popup__title-image');
-const buttonAddImage = document.querySelector('.buttonAddImage');
+// const popupTitleImage = popupMoreImage.querySelector('.popup__title-image');
+// const buttonAddImage = document.querySelector('.buttonAddImage');               
+// let image = document.querySelector('.image');
+// let imageTitle = document.querySelector('.popup_title-image');
+// const elementImageAdd = document.querySelector('.element__image_add');
+const closePopupImage = document.querySelector('.popup__close-image');
 
-const createCardImage = (data) => {  
-const htmlElement = template.content.querySelector('.element').cloneNode(true);
+closePopupImage.addEventListener('click', () => {
+    closePopup(popupMoreImage)
+    });
 
-const imageName = htmlElement.querySelector('.element__title');
-const imageOpenPopup = htmlElement.querySelector('.element__image');
 
-  imageName.textContent = data.name;
-  imageOpenPopup.src = data.link;
-}
+// const createCardImage = (data) => {  
+// const htmlElement = template.content.querySelector('.element').cloneNode(true);
+
+// let imageName = htmlElement.querySelector('.element__title');
+// let imageOpenPopup = htmlElement.querySelector('.element__image');
+
+
+
+// // elementImageAdd.addEventListener('click', (data) => {
+// //     openPopup(popupMoreImage);
+// // })
+
+//   imageName.textContent = data.name;
+//   imageOpenPopup.src = data.link;
+// }
+
  
-const renderImageElementPopup = (htmlElement) => {
-  popupImage.prepend(htmlElement);
-};
+// const openedPopup = (popup, imageIndex) => {
+//     image.alt = initialCards[imageIndex].name;
+//     image.src = initialCards[imageIndex].link;
+//     imageTitle.textContent = initialCards[imageIndex].name;
+//     popup.classList.add("popup_opened");
+// } 
 
-buttonAddImage.addEventListener('click', () => {
-  openPopup(popupMoreImage);
-});
-
-const handleEditImage = (evt) => {
-  evt.preventDefault();
-  popupImage.querySelector('element__image').src = data.link;
-  popupTitleImage.querySelector('element__title').textContent = data.name;
-
-  const imageData = {name, link};  // name почему-то устарело!
-}
-
-// renderImageElementPopup(createCardImage(data));
-// imageElement.querySelector('element__image').addEventListener('click', () => openPopup());
-
-  //   const buttonAddImage = document.querySelector('.buttonAddImage');
-  //   const popupMoreImage = document.querySelector('.popup_type_more_image');
-  //   const popupImage = popupMoreImage.querySelector('.popup__container-image');
-  //   const popupTitleImage = popupMoreImage.querySelector('.popup__title-image');
-
-  //   buttonAddImage.addEventListener('click', () => {
-  //     openPopup(popupMoreImage)
-    
-  //     popupImage.querySelector('element__image').src = data.link;
-  //     popupTitleImage.querySelector('element__title').textContent = data.name
-  //     popupMoreImage.classList.add('popup_opened')
-
-  // });
+// const renderImageElementPopup = (htmlElement) => {
+//   popupImage.prepend(htmlElement);
+// };
 
 
+// elementImageAdd.addEventListener('click', (e) => {
+//     var imageIndex = e.target.dataset.image_index
+//   openedPopup(popupMoreImage, imageIndex);
+// });
 
+// closePopupImage.addEventListener('click', () => {
+// closePopup(popupMoreImage)
+// });
 
+// const handleEditImage = (evt) => {
+//   evt.preventDefault();
+//   popupImage.querySelector('element__image').src = data.link;
+//   popupTitleImage.querySelector('element__title').textContent = data.name;
 
-
-
-
-
-
-
-
-
-
-
-// const createCardImage = (data) => {
-//     const imgHtmlElement = template.cloneNode(true)
-  
-//     imgHtmlElement.querySelector('element__image').src = data.link;
-//     imgHtmlElement.querySelector('element__title').textContent = data.name;
-  
-//}
-    // const buttonAddImage = document.querySelector('.buttonAddImage');
-    // const popupMoreImage = document.querySelector('.popup_type_more_image');
-    // const popupImage = popupMoreImage.querySelector('.popup__container-image');
-    // const popupTitleImage = popupMoreImage.querySelector('.popup__title-image');
-  
-    
-  //   buttonAddImage.addEventListener('click', () => {
-  //     openPopup(popupMoreImage)
-
-  //     popupMoreImage.src = data.link;
-  //     popupMoreImage.textContent = data.name
-  //     popupMoreImage.querySelector('element__image').src = data.link;
-  //     popupMoreImage.querySelector('element__title').textContent = data.name
-  //     popupMoreImage.classList.add('popup_opened')
-
-      
-  
-  // });
-  
-  //}
+//   const imageData = {name, link};  // name почему-то устарело!
+// }
