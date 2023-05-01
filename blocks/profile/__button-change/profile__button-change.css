@@ -7,6 +7,9 @@
     background-repeat: no-repeat;
     border: 1px solid #FFFFFF;
     padding: 0;
+    position: absolute;
+    right: 0;
+    top: 19px;
 }
 
 .profile__button-change:hover {
@@ -14,10 +17,17 @@
     cursor: pointer;
 }
 
+@media screen and (max-width: 1023px) {
+    .profile__button-change {
+        top: 6px;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .profile__button-change {
         width: 18px;
         height: 18px;
-        margin: 0 19px 0 10px;
+        top: 10px;
+        right: 19px;
     }
 }
