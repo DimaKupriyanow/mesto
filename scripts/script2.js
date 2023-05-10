@@ -1,26 +1,34 @@
-const changeButton = document.querySelector('.profile__button-change');
-const moreInfoPopup = document.querySelector('.popup_type_more-info');
-const moreInfoClose = moreInfoPopup.querySelector('.popup__close');
-const inputName = moreInfoPopup.querySelector('.popup__input-name');
-const inputClass = moreInfoPopup.querySelector('.popup__input-name_more_heading');
-const saveInfoPopupForm = moreInfoPopup.querySelector('.popup__container');
-const infoName = document.querySelector('.profile__title');
-const infoClass = document.querySelector('.profile__subtitle');
+const changeButton = document.querySelector(".profile__button-change");
+const moreInfoPopup = document.querySelector(".popup_type_more-info");
+const inputName = moreInfoPopup.querySelector(".popup__input-name");
+const inputClass = moreInfoPopup.querySelector(".popup__input-name_more_heading");
+const saveInfoPopupForm = moreInfoPopup.querySelector(".popup__container");
+const infoName = document.querySelector(".profile__title");
+const infoClass = document.querySelector(".profile__subtitle");
 const addButtonItem = document.querySelector(".profile__button-add");
 const moreInfoPopupItem = document.querySelector(".popup_type_more-item");
 const saveInfoPopupFormItem = document.querySelector(".popup__container_item");
-const moreInfoCloseItem = document.querySelector(".popup__close_item");
 const nameInput = document.querySelector(".popup__input-name_item");
 const linkInput = document.querySelector(".popup__input-name_more_link");
+const popupMoreImage = document.querySelector(".popup_type_more-image");
 
 const openPopup = (popup) => {
   popup.classList.add("popup_opened"); // общяя функция для открытия popup
 };
 
 const closePopup = (popup) => {
-  // общяя функция для закрытия popup
-  popup.classList.remove("popup_opened");
+  popup.classList.remove("popup_opened"); // общяя функция для закрытия popup
 };
+
+const popupClose = document
+  .querySelectorAll(".popup__close")
+  .forEach((elem) => {
+    elem.addEventListener("click", () => {
+      closePopup(moreInfoPopup);
+      closePopup(popupMoreImage);
+      closePopup(moreInfoPopupItem);
+    });
+  });
 
 // первый попап
 
@@ -28,10 +36,6 @@ changeButton.addEventListener("click", () => {
   openPopup(moreInfoPopup);
   inputName.value = infoName.textContent;
   inputClass.value = infoClass.textContent;
-});
-
-moreInfoClose.addEventListener("click", () => {
-  closePopup(moreInfoPopup);
 });
 
 saveInfoPopupForm.addEventListener("submit", saveFormSubmit);
@@ -81,7 +85,7 @@ const createImageElement = (imageData) => {
   const imageName = imageElement.querySelector(".element__title");
   const myImage = imageElement.querySelector(".element__image");
 
-  imageName.innerHTML = imageData.name;
+  imageName.textContent = imageData.name;
   myImage.src = imageData.link;
   myImage.alt = imageData.name;
 
@@ -96,18 +100,14 @@ const createImageElement = (imageData) => {
     imageElement.remove();
   };
 
-  const popupMoreImage = document.querySelector(".popup_type_more-image");
-  const closePopupImage = document.querySelector(".popup__close-image");
+  // popup 3
 
   myImage.addEventListener("click", () => {
     popupMoreImage.querySelector(".image").src = imageData.link;
+    popupMoreImage.querySelector(".image").alt = imageData.link;
     popupMoreImage.querySelector(".popup__title-image").textContent =
       imageData.name;
     openPopup(popupMoreImage);
-  });
-
-  closePopupImage.addEventListener("click", () => {
-    closePopup(popupMoreImage);
   });
 
   likeButton.addEventListener("click", handleLike);
@@ -130,10 +130,6 @@ addButtonItem.addEventListener("click", () => {
   openPopup(moreInfoPopupItem);
 });
 
-moreInfoCloseItem.addEventListener("click", () => {
-  closePopup(moreInfoPopupItem);
-});
-
 const saveFormSubmitImage = (evt) => {
   evt.preventDefault();
 
@@ -152,14 +148,13 @@ const saveFormSubmitImage = (evt) => {
 
 saveInfoPopupFormItem.addEventListener("submit", saveFormSubmitImage);
 
-
-//popup 3 который должен открывать картинку 
+//popup 3 который должен открывать картинку
 
 // const template = document.getElementById('images-card');
 // const popupImage = document.querySelector('.popup__container-image');
 // const popupMoreImage = document.querySelector('.popup_type_more-image');
 // const popupTitleImage = popupMoreImage.querySelector('.popup__title-image');
-// const buttonAddImage = document.querySelector('.buttonAddImage');               
+// const buttonAddImage = document.querySelector('.buttonAddImage');
 // let image = document.querySelector('.image');
 // let imageTitle = document.querySelector('.popup__title-image');
 // const elementImageAdd = document.querySelector('.element__image_add');
@@ -169,14 +164,11 @@ saveInfoPopupFormItem.addEventListener("submit", saveFormSubmitImage);
 //     closePopup(popupMoreImage)
 //     });
 
-
-// const createCardImage = (data) => {  
+// const createCardImage = (data) => {
 // const htmlElement = template.content.querySelector('.element').cloneNode(true);
 
 // let imageName = htmlElement.querySelector('.element__title');
 // let imageOpenPopup = htmlElement.querySelector('.element__image');
-
-
 
 // // elementImageAdd.addEventListener('click', (data) => {
 // //     openPopup(popupMoreImage);
@@ -186,18 +178,16 @@ saveInfoPopupFormItem.addEventListener("submit", saveFormSubmitImage);
 //   imageOpenPopup.src = data.link;
 // }
 
- 
 // const openedPopup = (popup, imageIndex) => {
 //     image.alt = initialCards[imageIndex].name;
 //     image.src = initialCards[imageIndex].link;
 //     imageTitle.textContent = initialCards[imageIndex].name;
 //     popup.classList.add("popup_opened");
-// } 
+// }
 
 // const renderImageElementPopup = (htmlElement) => {
 //   popupImage.prepend(htmlElement);
 // };
-
 
 // elementImageAdd.addEventListener('click', (e) => {
 //     var imageIndex = e.target.dataset.image_index
