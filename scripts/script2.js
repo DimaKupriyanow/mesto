@@ -11,6 +11,8 @@ const saveInfoPopupFormItem = document.querySelector(".popup__container_item");
 const nameInput = document.querySelector(".popup__input-name_item");
 const linkInput = document.querySelector(".popup__input-name_more_link");
 const popupMoreImage = document.querySelector(".popup_type_more-image");
+const imagePopup = popupMoreImage.querySelector(".image");
+const titleImagePopup = popupMoreImage.querySelector(".popup__title-image");
 
 const openPopup = (popup) => {
   popup.classList.add("popup_opened"); // общяя функция для открытия popup
@@ -102,11 +104,18 @@ const createImageElement = (imageData) => {
 
   // popup 3
 
+  // myImage.addEventListener("click", () => {
+  //   popupMoreImage.querySelector(".image").src = imageData.link;
+  //   popupMoreImage.querySelector(".image").alt = imageData.link;
+  //   popupMoreImage.querySelector(".popup__title-image").textContent =
+  //     imageData.name;
+  //   openPopup(popupMoreImage);
+  // });
+
   myImage.addEventListener("click", () => {
-    popupMoreImage.querySelector(".image").src = imageData.link;
-    popupMoreImage.querySelector(".image").alt = imageData.link;
-    popupMoreImage.querySelector(".popup__title-image").textContent =
-      imageData.name;
+    imagePopup.src = imageData.link;
+    imagePopup.alt = imageData.link;
+    titleImagePopup.textContent = imageData.name;
     openPopup(popupMoreImage);
   });
 
