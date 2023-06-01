@@ -39,23 +39,20 @@
             </div>
         </template>
         <div class="popup popup_type_more-info">
-            <form id="popupInfo" name="formOne" class="popup__container">
+            <form novalidate id="popupInfo" name="form" class="form popup__container">
                 <button type="reset" class="popup__close"></button>
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <input name="formName" placeholder="Жак-Ив Кусто" class="popup__input-name">
-                <input name="formClass" placeholder="Исследователь океана"
-                    class="popup__input-name popup__input-name_more_heading">
+                <input required minlength="2" maxlength="40" name="formName" placeholder="Жак-Ив Кусто" class="form__input popup__input-name">
+                <input required minlength="2" maxlength="400" name="formClass" placeholder="Исследователь океана" class="form__input popup__input-name popup__input-name_more_heading">
                 <button type="submit" class="popup__button-submit">Сохранить</button>
             </form>
         </div>
-
         <div class="popup popup_type_more-item">
-            <form id="popupItem" name="formOne" class="popup__container popup__container_item">
+            <form novalidate id="popupItem" name="form" class="form popup__container popup__container_item">
                 <button type="reset" class="popup__close"></button>
                 <h3 class="popup__title">Новое место</h3>
-                <input name="formNameItem" placeholder="Название" class="popup__input-name popup__input-name-item">
-                <input name="formLinkItem" type="url" placeholder="Ссылка на картинку"
-                    class="popup__input-name popup__input-name_more_link">
+                <input required minlength="2" maxlength="30" name="formNameItem" placeholder="Название" class="form__input popup__input-name popup__input-name-item">
+                <input required type="url" name="formLinkItem" type="url" placeholder="Ссылка на картинку" class="form__input popup__input-name popup__input-name_more_link">
                 <button type="submit" class="popup__button-submit">Сохранить</button>
             </form>
         </div>
@@ -70,6 +67,8 @@
     <footer class="footer">© 2020 Mesto Russia
     </footer>
     <script defer src="./scripts/script2.js"></script>
+    <script defer src="./scripts/validate.js"></script>
+    <!-- <script defer src="./scripts/demo.js"></script> -->
 </body>
 
 </html>

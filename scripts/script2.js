@@ -14,6 +14,7 @@ const popupMoreImage = document.querySelector(".popup_type_more-image");
 const imagePopup = popupMoreImage.querySelector(".image");
 const titleImagePopup = popupMoreImage.querySelector(".popup__title-image");
 
+
 const openPopup = (popup) => {
   popup.classList.add("popup_opened"); // общяя функция для открытия popup
 };
@@ -156,4 +157,9 @@ const saveFormSubmitImage = (evt) => {
 };
 
 saveInfoPopupFormItem.addEventListener("submit", saveFormSubmitImage);
+
+
+
+
+
 

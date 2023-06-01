@@ -27,4 +27,5 @@
 @import url(../blocks/popup/__container/__container-image/popup__container-image.css);
 @import url(../blocks/image/image.css);
 @import url(../blocks/popup/__title-image/popup__title-image.css);
+@import url(../blocks/form__input/_type/_error/form__input_type_error.css);
 @import url(../blocks/footer/footer.css);
