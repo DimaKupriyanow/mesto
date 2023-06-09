@@ -1,0 +1,10 @@
+.popup__button-submit_add {
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    color: #E5E5E5;
+    margin: 31px auto 36px;
+}
+
+.popup__button-submit_add:hover {
+    cursor: default;
+}

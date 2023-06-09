@@ -13,25 +13,41 @@ const linkInput = document.querySelector(".popup__input-name_more_link");
 const popupMoreImage = document.querySelector(".popup_type_more-image");
 const imagePopup = popupMoreImage.querySelector(".image");
 const titleImagePopup = popupMoreImage.querySelector(".popup__title-image");
+const popupAll = document.querySelectorAll(".popup");
 
-
-const openPopup = (popup) => {
-  popup.classList.add("popup_opened"); // общяя функция для открытия popup
-};
-
-const closePopup = (popup) => {
-  popup.classList.remove("popup_opened"); // общяя функция для закрытия popup
-};
-
-const popupClose = document
-  .querySelectorAll(".popup__close")
-  .forEach((elem) => {
-    elem.addEventListener("click", () => {
-      closePopup(moreInfoPopup);
-      closePopup(popupMoreImage);
-      closePopup(moreInfoPopupItem);
-    });
+//закрытие попапа при нажатии клавиши esc и при клике на оверлей
+popupAll.forEach((elem) => {
+  document.addEventListener("keydown", (evt) => {
+    if (evt.key === "Escape") {
+      closePopup(elem);
+    }
   });
+
+  document.addEventListener("click", (evt) => {
+    if (evt.target === elem) {
+      closePopup(elem);
+    }
+  });
+});
+
+// общяя функция для открытия popup
+const openPopup = (popup) => {
+  popup.classList.add("popup_opened");
+};
+
+// общяя функция для закрытия popup
+const closePopup = (popup) => {
+  popup.classList.remove("popup_opened");
+};
+
+const popupClose = document.querySelectorAll(".popup__close");
+popupClose.forEach((elem) => {
+  elem.addEventListener("click", () => {
+    closePopup(moreInfoPopup);
+    closePopup(popupMoreImage);
+    closePopup(moreInfoPopupItem);
+  });
+});
 
 // первый попап
 
@@ -42,6 +58,7 @@ changeButton.addEventListener("click", () => {
 });
 
 saveInfoPopupForm.addEventListener("submit", saveFormSubmit);
+
 function saveFormSubmit(event) {
   event.preventDefault();
   infoName.textContent = inputName.value;
@@ -103,16 +120,6 @@ const createImageElement = (imageData) => {
     imageElement.remove();
   };
 
-  // popup 3
-
-  // myImage.addEventListener("click", () => {
-  //   popupMoreImage.querySelector(".image").src = imageData.link;
-  //   popupMoreImage.querySelector(".image").alt = imageData.link;
-  //   popupMoreImage.querySelector(".popup__title-image").textContent =
-  //     imageData.name;
-  //   openPopup(popupMoreImage);
-  // });
-
   myImage.addEventListener("click", () => {
     imagePopup.src = imageData.link;
     imagePopup.alt = imageData.link;
@@ -157,9 +164,3 @@ const saveFormSubmitImage = (evt) => {
 };
 
 saveInfoPopupFormItem.addEventListener("submit", saveFormSubmitImage);
-
-
-
-
-
-

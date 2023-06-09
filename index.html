@@ -23,12 +23,6 @@
         </section>
 
         <div class="elements">
-            <!-- <div class="element">
-                <img src="images/Карачаево.jpg" alt="Карачаевск" id="myImageCards" class="element__image">
-                <h3 class="element__title">Карачаево-Черкесия</h3>
-                <button type="button" class="element__icon"></button>
-                <button type="button" class="element__delete"></button>
-            </div>  -->
         </div>
         <template id="images-card">
             <div class="element">
@@ -39,21 +33,37 @@
             </div>
         </template>
         <div class="popup popup_type_more-info">
-            <form novalidate id="popupInfo" name="form" class="form popup__container">
+            <form id="popupInfo" name="form" novalidate class="form popup__container">
+        
                 <button type="reset" class="popup__close"></button>
                 <h3 class="popup__title">Редактировать профиль</h3>
-                <input required minlength="2" maxlength="40" name="formName" placeholder="Жак-Ив Кусто" class="form__input popup__input-name">
-                <input required minlength="2" maxlength="400" name="formClass" placeholder="Исследователь океана" class="form__input popup__input-name popup__input-name_more_heading">
+        
+                <input required minlength="2" maxlength="40" id="formName" class="form__input popup__input-name"
+                    placeholder="Жак-Ив Кусто">
+                <span id="error-formName" class="form-name-error form__input-error"></span>
+        
+                <input id="formClass" required minlength="2" maxlength="200" placeholder="Название"
+                    class="form__input popup__input-name popup__input-name_more_heading">
+                <span id="error-formClass" class="form-class-error form__input-error"></span>
+        
                 <button type="submit" class="popup__button-submit">Сохранить</button>
+        
             </form>
         </div>
         <div class="popup popup_type_more-item">
             <form novalidate id="popupItem" name="form" class="form popup__container popup__container_item">
                 <button type="reset" class="popup__close"></button>
                 <h3 class="popup__title">Новое место</h3>
-                <input required minlength="2" maxlength="30" name="formNameItem" placeholder="Название" class="form__input popup__input-name popup__input-name-item">
-                <input required type="url" name="formLinkItem" type="url" placeholder="Ссылка на картинку" class="form__input popup__input-name popup__input-name_more_link">
-                <button type="submit" class="popup__button-submit">Сохранить</button>
+        
+                <input required minlength="2" maxlength="30" id="nameImage" placeholder="Название"
+                    class="form__input popup__input-name popup__input-name_item">
+                <span id="error-nameImage" class="form-item-error form__input-error"></span>
+        
+                <input required id="formLink" type="url" placeholder="Ссылка на картинку"
+                    class="form__input popup__input-name popup__input-name_more_link">
+                <span id="error-formLink" class="form-link-error form__input-error"></span>
+        
+                <button disabled type="submit" class="popup__button-submit popup__button-submit_add">Сохранить</button>
             </form>
         </div>
         <div class="popup popup_type_more-image">
@@ -68,7 +78,5 @@
     </footer>
     <script defer src="./scripts/script2.js"></script>
     <script defer src="./scripts/validate.js"></script>
-    <!-- <script defer src="./scripts/demo.js"></script> -->
 </body>
-
 </html>
