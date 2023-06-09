@@ -15,6 +15,15 @@ const imagePopup = popupMoreImage.querySelector(".image");
 const titleImagePopup = popupMoreImage.querySelector(".popup__title-image");
 const popupAll = document.querySelectorAll(".popup");
 
+//удаление ошибки при закрытии попапа
+const formInputError = document.querySelectorAll('.form__input-error');
+ const deleteErrorElement = () => {
+  formInputError.forEach((elem) => {
+    elem.textContent = '';
+  })
+ };
+
+
 //закрытие попапа при нажатии клавиши esc и при клике на оверлей
 popupAll.forEach((elem) => {
   document.addEventListener("keydown", (evt) => {
@@ -38,6 +47,7 @@ const openPopup = (popup) => {
 // общяя функция для закрытия popup
 const closePopup = (popup) => {
   popup.classList.remove("popup_opened");
+  deleteErrorElement(form);
 };
 
 const popupClose = document.querySelectorAll(".popup__close");

@@ -1,4 +1,4 @@
-  const formSubmitButtonChangeState = (form) => {
+const formSubmitButtonChangeState = (form) => {
     const button = form.querySelector(".popup__button-submit");
     if (!form.checkValidity()) {
       button.setAttribute("disabled", true);
@@ -21,6 +21,7 @@
   const showError = (input) => {
     const errorElement = getErrorElement(input);
     errorElement.textContent = input.validationMessage;
+
   };
 
   const validateInput = (input) => {
@@ -41,4 +42,3 @@
   document.querySelectorAll(".form").forEach((popupForm) => {
     popupForm.addEventListener("input", validateInputEvent, true);
   });
-  
