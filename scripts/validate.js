@@ -1,7 +1,13 @@
+const disableSubmitButton = () => {
+    const buttonInputElement = document.getElementById('buttonInputItem');
+    buttonInputElement.setAttribute("disabled", true);
+    buttonInputElement.classList.add(config.inactiveButtonClass);  
+};
+
 const deleteErrorElement = () => {
   const formInputError = document.querySelectorAll(config.inputErrorClass);
   formInputError.forEach((elem) => {
-    elem.textContent = "";
+    elem.textContent = '';
   });
 };
 
@@ -52,15 +58,13 @@ const enableValidation = (config) => {
 };
 
 enableValidation({
-  formSelector: ".form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".popup__button-submit",
-  inactiveButtonClass: "popup__button-submit_add",
-  inputErrorClass: "form__input-error",
-  errorClass: "popup__error_visible",
+    formSelector: ".form",
+    inputSelector: ".form__input",
+    submitButtonSelector: ".popup__button-submit",
+    inactiveButtonClass: "popup__button-submit_add",
+    inputErrorClass: "form__input-error",
+    errorClass: "popup__error_visible"
 });
-
-
 
 
 

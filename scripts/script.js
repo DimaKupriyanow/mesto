@@ -13,44 +13,51 @@ const linkInput = document.querySelector(".popup__input-name_more_link");
 const popupMoreImage = document.querySelector(".popup_type_more-image");
 const imagePopup = popupMoreImage.querySelector(".image");
 const titleImagePopup = popupMoreImage.querySelector(".popup__title-image");
-const buttonInputElement = document.getElementById('buttonInputItem');
 
 //закрытие попапа при нажатии клавиши esc и при клике на оверлей
 
-const closePopupEscapeOver = () => {
+const closePopupEsc = (evt) => {
+  if (evt.key === "Escape") {
+    closePopup(moreInfoPopup);
+    closePopup(popupMoreImage);
+    closePopup(moreInfoPopupItem);
+  }
+};
+
+const closePopupOverlay = (evt) => {
   document.querySelectorAll(".popup").forEach((elem) => {
-    document.addEventListener("keydown", (evt) => {
-      if (evt.key === "Escape") {
-        closePopup(elem);
-      }
-    });
-    document.addEventListener("click", (evt) => {
+    if (evt.target === elem) {
+      closePopup(elem);
+    }
+  });
+};
+
+const buttonsClosePopup = () => {
+  document.querySelectorAll(".popup__close").forEach((elem) => {
+    elem.addEventListener("click", (evt) => {
       if (evt.target === elem) {
-        closePopup(elem);
+        closePopup(moreInfoPopup);
+        closePopup(popupMoreImage);
+        closePopup(moreInfoPopupItem);
       }
     });
   });
 };
 
-const buttonsClosePopup = document
-  .querySelectorAll(".popup__close")
-  .forEach((elem) => {
-    elem.addEventListener("click", () => {
-      closePopup(moreInfoPopup);
-      closePopup(popupMoreImage);
-      closePopup(moreInfoPopupItem);
-    });
-  });
-
 // общяя функция для открытия popup
+
 const openPopup = (popup) => {
   popup.classList.add("popup_opened");
-  closePopupEscapeOver(popup);
+  document.addEventListener("keydown", closePopupEsc);
+  popup.addEventListener("click", closePopupOverlay);
+  buttonsClosePopup();
 };
 
 // общяя функция для закрытия popup
 const closePopup = (popup) => {
   popup.classList.remove("popup_opened");
+  document.removeEventListener("keydown", closePopupEsc);
+  popup.removeEventListener("click", closePopupOverlay);
 };
  
 // первый попап
@@ -123,11 +130,9 @@ initialCards.forEach((image) => {
 
 addButtonItem.addEventListener("click", () => {
   openPopup(moreInfoPopupItem);
-  nameInput.value = '';
-  linkInput.value = '';
-  buttonInputElement.setAttribute("disabled", true);
-  buttonInputElement.classList.add('popup__button-submit_add');
+  disableSubmitButton();
   deleteErrorElement();
+  saveInfoPopupFormItem.reset();
 });
 
 const saveFormSubmitImage = (evt) => {
