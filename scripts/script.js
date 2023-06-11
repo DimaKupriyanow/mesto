@@ -13,58 +13,53 @@ const linkInput = document.querySelector(".popup__input-name_more_link");
 const popupMoreImage = document.querySelector(".popup_type_more-image");
 const imagePopup = popupMoreImage.querySelector(".image");
 const titleImagePopup = popupMoreImage.querySelector(".popup__title-image");
-const popupAll = document.querySelectorAll(".popup");
-
-//удаление ошибки при закрытии попапа
-const formInputError = document.querySelectorAll('.form__input-error');
- const deleteErrorElement = () => {
-  formInputError.forEach((elem) => {
-    elem.textContent = '';
-  })
- };
-
+const buttonInputElement = document.getElementById('buttonInputItem');
 
 //закрытие попапа при нажатии клавиши esc и при клике на оверлей
-popupAll.forEach((elem) => {
-  document.addEventListener("keydown", (evt) => {
-    if (evt.key === "Escape") {
-      closePopup(elem);
-    }
-  });
 
-  document.addEventListener("click", (evt) => {
-    if (evt.target === elem) {
-      closePopup(elem);
-    }
+const closePopupEscapeOver = () => {
+  document.querySelectorAll(".popup").forEach((elem) => {
+    document.addEventListener("keydown", (evt) => {
+      if (evt.key === "Escape") {
+        closePopup(elem);
+      }
+    });
+    document.addEventListener("click", (evt) => {
+      if (evt.target === elem) {
+        closePopup(elem);
+      }
+    });
   });
-});
+};
+
+const buttonsClosePopup = document
+  .querySelectorAll(".popup__close")
+  .forEach((elem) => {
+    elem.addEventListener("click", () => {
+      closePopup(moreInfoPopup);
+      closePopup(popupMoreImage);
+      closePopup(moreInfoPopupItem);
+    });
+  });
 
 // общяя функция для открытия popup
 const openPopup = (popup) => {
   popup.classList.add("popup_opened");
+  closePopupEscapeOver(popup);
 };
 
 // общяя функция для закрытия popup
 const closePopup = (popup) => {
   popup.classList.remove("popup_opened");
-  deleteErrorElement(form);
 };
-
-const popupClose = document.querySelectorAll(".popup__close");
-popupClose.forEach((elem) => {
-  elem.addEventListener("click", () => {
-    closePopup(moreInfoPopup);
-    closePopup(popupMoreImage);
-    closePopup(moreInfoPopupItem);
-  });
-});
-
+ 
 // первый попап
 
 changeButton.addEventListener("click", () => {
   openPopup(moreInfoPopup);
   inputName.value = infoName.textContent;
   inputClass.value = infoClass.textContent;
+  deleteErrorElement();
 });
 
 saveInfoPopupForm.addEventListener("submit", saveFormSubmit);
@@ -77,33 +72,6 @@ function saveFormSubmit(event) {
 }
 
 // создание карточек с фото
-
-const initialCards = [
-  {
-    name: "Архыз",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-  },
-  {
-    name: "Челябинская область",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-  },
-  {
-    name: "Иваново",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-  },
-  {
-    name: "Камчатка",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-  },
-  {
-    name: "Холмогорский район",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-  },
-  {
-    name: "Байкал",
-    link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-  },
-];
 
 const templateCard = document.getElementById("images-card");
 const imageGrid = document.querySelector(".elements");
@@ -155,6 +123,11 @@ initialCards.forEach((image) => {
 
 addButtonItem.addEventListener("click", () => {
   openPopup(moreInfoPopupItem);
+  nameInput.value = '';
+  linkInput.value = '';
+  buttonInputElement.setAttribute("disabled", true);
+  buttonInputElement.classList.add('popup__button-submit_add');
+  deleteErrorElement();
 });
 
 const saveFormSubmitImage = (evt) => {
