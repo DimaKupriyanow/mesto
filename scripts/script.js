@@ -17,32 +17,30 @@ const titleImagePopup = popupMoreImage.querySelector(".popup__title-image");
 //закрытие попапа при нажатии клавиши esc и при клике на оверлей
 
 const closePopupEsc = (evt) => {
+  const popupOpened = document.querySelector(".popup_opened");
   if (evt.key === "Escape") {
-    closePopup(moreInfoPopup);
-    closePopup(popupMoreImage);
-    closePopup(moreInfoPopupItem);
+    closePopup(popupOpened);
   }
 };
 
 const closePopupOverlay = (evt) => {
-  document.querySelectorAll(".popup").forEach((elem) => {
-    if (evt.target === elem) {
-      closePopup(elem);
-    }
-  });
+  const popupOpened = document.querySelector(".popup_opened");
+  if (evt.target === popupOpened) {
+    closePopup(popupOpened);
+  }
 };
 
-const buttonsClosePopup = () => {
-  document.querySelectorAll(".popup__close").forEach((elem) => {
-    elem.addEventListener("click", (evt) => {
-      if (evt.target === elem) {
-        closePopup(moreInfoPopup);
-        closePopup(popupMoreImage);
-        closePopup(moreInfoPopupItem);
-      }
-    });
+
+const buttonsClosePopup = document.querySelectorAll(".popup__close");
+buttonsClosePopup.forEach((elem) => {
+  elem.addEventListener("click", (evt) => {
+    const popupOpened = document.querySelector(".popup_opened");
+    if (evt.target === elem) {
+      closePopup(popupOpened);
+    }
   });
-};
+});
+
 
 // общяя функция для открытия popup
 
@@ -50,7 +48,6 @@ const openPopup = (popup) => {
   popup.classList.add("popup_opened");
   document.addEventListener("keydown", closePopupEsc);
   popup.addEventListener("click", closePopupOverlay);
-  buttonsClosePopup();
 };
 
 // общяя функция для закрытия popup
