@@ -1,5 +1,6 @@
+const image = document.querySelector('.image');
 
-export default class Card {
+export class Card {
   constructor(data, templateSelector) {
     this._name = data.name;
     this._link = data.link;
@@ -46,8 +47,8 @@ export default class Card {
   }
 
   _handleOpenPopup() {
-    document.querySelector('.image').src = this._link;
-    document.querySelector('.image').alt = this._link;
+    image.src = this._link;
+    image.alt = this._name;
     document.querySelector('.popup__title-image').textContent = this._name;
     document.querySelector('.popup_type_more-image').classList.add("popup_opened");
   }
@@ -60,6 +61,7 @@ export default class Card {
 
   _handleDelete() {
     this._element.remove();
+    this._element = "";
   }
 }
 

@@ -26,14 +26,14 @@
         </div>
         <template id="images-card" class="template-card card-template_type_default">
             <div class="element">
-                <img class="element__image  element__image_add" alt="Фото" id="element__image_add">
+                <img class="element__image  element__image_add" alt="Фото">
                 <h3 class="element__title"></h3>
                 <button type="button" class="element__icon"></button>
                 <button type="button" class="element__delete"></button>
             </div>
         </template>
         <div class="popup popup_type_more-info">
-            <form id="popupInfo" name="form" novalidate class="form popup__container">
+            <form id="popupInfo" name="formMoreInfo" novalidate class="form popup__container">
         
                 <button type="reset" class="popup__close"></button>
                 <h3 class="popup__title">Редактировать профиль</h3>
@@ -51,7 +51,7 @@
             </form>
         </div>
         <div class="popup popup_type_more-item">
-            <form novalidate id="popupItem" name="form" class="form popup__container popup__container_item">
+            <form novalidate id="popupItem" name="formMoreItem" class="form form2 popup__container popup__container_item">
                 <button type="reset" class="popup__close"></button>
                 <h3 class="popup__title">Новое место</h3>
         
@@ -77,8 +77,6 @@
     <footer class="footer">© 2020 Mesto Russia
     </footer>
     <script type="module" defer src="./scripts/index.js"></script>
-    <script type="module" defer src="./scripts/FormValidator.js"></script>
-    <script type="module" defer src="./scripts/Card.js"></script>
 
 </body>
 </html>
