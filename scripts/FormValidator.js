@@ -3,11 +3,13 @@ export class FormValidator {
   constructor(config, form) {
     this._config = config;
     this._form = form;
+   
   }
 
-  _formSubmitButtonChangeState = (form) => {
-    const button = form.querySelector(this._config.submitButtonSelector);
-    if (!form.checkValidity()) {
+ 
+  _formSubmitButtonChangeState = () => {
+    const button = this._form.querySelector(this._config.submitButtonSelector);
+    if (!this._form.checkValidity()) {
       button.setAttribute("disabled", true);
       button.classList.add(this._config.inactiveButtonClass);
     } else {
@@ -42,13 +44,12 @@ export class FormValidator {
     const input = evt.target;
     const form = evt.currentTarget;
     this._validateInput(input);
-    this._formSubmitButtonChangeState(form);
+    this._formSubmitButtonChangeState();
   };
 
-  enableValidation = () => {
-    document
-      .querySelector(this._config.formSelector)
-      .addEventListener("input", this._validateInputEvent, true);
+  
+   enableValidation = () => {
+    this._form.addEventListener("input", this._validateInputEvent, true);
   };
 }
 

@@ -1,6 +1,7 @@
-import { initialCards } from './constants.js'
+import { initialCards, validationConfig } from './constants.js'
 import { Card }  from './Card.js'
 import { FormValidator } from './FormValidator.js'
+
 
 const changeButton = document.querySelector(".profile__button-change");
 const moreInfoPopup = document.querySelector(".popup_type_more-info");
@@ -96,6 +97,7 @@ addButtonItem.addEventListener("click", () => {   //popup 2
 });
 
 
+
 initialCards.forEach((item) => {
   const card = new Card(item, ".card-template_type_default");
   const cardElement = card.generateCard();
@@ -123,27 +125,13 @@ const saveFormSubmitImage = (evt) => {
 saveInfoPopupFormItem.addEventListener("submit", saveFormSubmitImage);
 
 
-const formValidator1 = new FormValidator({
-  formSelector: ".form",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".popup__button-submit",
-  inactiveButtonClass: "popup__button-submit_add",
-  inputErrorClass: "form__input-error",
-  errorClass: "popup__error_visible",
-});
+const formProfileValidator = new FormValidator( validationConfig, saveInfoPopupForm );
+const formAddCardValidator = new FormValidator( validationConfig, saveInfoPopupFormItem );
 
-const formValidator2 = new FormValidator({
-  formSelector: ".form2",
-  inputSelector: ".form__input",
-  submitButtonSelector: ".popup__button-submit",
-  inactiveButtonClass: "popup__button-submit_add",
-  inputErrorClass: "form__input-error",
-  errorClass: "popup__error_visible",
-});
 
-  
-formValidator1.enableValidation();
-formValidator2.enableValidation();
+formProfileValidator.enableValidation();
+formAddCardValidator.enableValidation();
 
-  
+
+
 
