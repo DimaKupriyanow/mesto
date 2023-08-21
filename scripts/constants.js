@@ -34,3 +34,6 @@ export const initialCards = [
     inputErrorClass: "form__input-error", 
     errorClass: "popup__error_visible", 
   };
+
+ 
+
