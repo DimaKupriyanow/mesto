@@ -1,4 +1,3 @@
-export const image = document.querySelector('.image');
 
 export class Card  {
   constructor({data, handleCardClick}, templateSelector) {
@@ -47,12 +46,6 @@ export class Card  {
       });
   }
 
-  // _handleOpenPopup() {
-  //   image.src = this._link;
-  //   image.alt = this._name;
-  //   document.querySelector('.popup__title-image').textContent = this._name;
-  //   document.querySelector('.popup_type_more-image').classList.add("popup_opened");
-  // }
 
   _handleLike() {
     this._element

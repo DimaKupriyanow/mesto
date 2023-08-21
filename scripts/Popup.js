@@ -3,8 +3,7 @@ export class Popup {
   constructor(popupSelector) {
     this._selector = popupSelector;
 
-    // this._buttonsClose = this._selector.querySelector(".popup__close");
-    console.log(this._selector)
+    this._buttonsClose = this._selector.querySelector(".popup__close");
   }
 
   open() {
@@ -18,12 +17,12 @@ export class Popup {
   _handleEscClose(evt) {
     if (evt.key === "Escape") {
       this.close();
-    };
+    }
   }
 
- setEventListeners() {
-  document.querySelector(".popup__close")
-  .addEventListener("click", () => {
+  setEventListeners() {
+    this._buttonsClose
+    .addEventListener("click", () => {
       this.close();
     });
 

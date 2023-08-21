@@ -1,27 +1,22 @@
-import { infoName } from './index.js';
-import { infoClass } from './index.js';
 
 export class UserInfo {
-    constructor( selectorName, selectorInfo ) {
-        this._name = selectorName;
-        this._info = selectorInfo;
-    }
+  constructor(selectorName, selectorInfo) {
+    this._name = selectorName;
+    this._info = selectorInfo;
+  }
 
-    getUserInfo() {
-        const newCardData = {
-                name: this._name.value,
-                info: this._info.value,
-              };
-console.log(newCardData)
-          return newCardData;
-    }
+  getUserInfo({ nameProf, infoProf }) { // возвращает обьект с данными пользователя
 
-    
-    
 
-    setUserInfo() {
-        this.getUserInfo()
-        this._name.value = infoName.textContent;
-        this._info.value = infoClass.textContent;
-    }
+    return {
+        name: this._name.textContent = nameProf.textContent,
+        info: this._info.textContent = infoProf.textContent
+  }
+}
+
+  setUserInfo({ nameInput, infoInput}) { // принимает новые данные и добавляет их на страницу 
+    nameInput.textContent = this._name.value;
+    infoInput.textContent = this._info.value;
+
+  }
 }

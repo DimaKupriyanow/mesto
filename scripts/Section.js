@@ -1,6 +1,4 @@
 
-
-
 export class Section {      // класс вставляет разметку в DOM
   constructor({ items, renderer }, containerSelector) {
     this._renderedItems = items;
