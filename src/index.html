@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
+    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
     <link rel="icon" href="data:,">
         <title>Mesto</title>
 </head>
@@ -13,7 +13,7 @@
     </header>
     <main class="content">
         <section class="profile">
-            <img src="images/Avatar.svg" alt="Кусто" class="profile__avatar">
+            <img src="<%=require('../images/Avatar.svg')%>" alt="Кусто" class="profile__avatar">
             <div class="profile__info">
                 <h1 class="profile__title">Жак-Ив Кусто</h1>
                 <button type="button" class="profile__button-change"></button>
@@ -77,7 +77,7 @@
     </main>
     <footer class="footer">© 2020 Mesto Russia
     </footer>
-    <script type="module" defer src="./scripts/index.js"></script>
+    <!-- <script type="module" defer src="./scripts/index.js"></script> -->
 
 </body>
 </html>
