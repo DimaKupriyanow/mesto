@@ -12,7 +12,6 @@ export class PopupWithImage extends Popup {
     this._image.src = evt.target.src;
     this._title.alt = evt.target.alt;
     this._title.textContent = evt.target.alt;
-
   }
 }
 

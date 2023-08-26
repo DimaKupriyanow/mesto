@@ -21,10 +21,10 @@ export class Card  {
     this._setEventListeners();
     this._element.querySelector(".element__image").src = this._link;
     this._element.querySelector(".element__title").textContent = this._name;
+    this._element.querySelector(".element__title").alt = this._name;
 
     return this._element;
   }
-
 
   _setEventListeners() {
     this._element
@@ -45,7 +45,6 @@ export class Card  {
         this._handleCardClick(evt);
       });
   }
-
 
   _handleLike() {
     this._element

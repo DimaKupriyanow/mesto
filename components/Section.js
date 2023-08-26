@@ -4,7 +4,6 @@ export class Section {      // класс вставляет разметку в
     this._renderedItems = items;
     this._renderer = renderer;
     this._container = containerSelector;
-
   }
 
   rendererItems() {      // отрисовка всех елементов

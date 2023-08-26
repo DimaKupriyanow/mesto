@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <link rel="stylesheet" href="./pages/index.css"> -->
     <link rel="icon" href="data:,">
         <title>Mesto</title>
 </head>
@@ -25,7 +24,7 @@
         <div class="elements">
         <template id="images-card" class="template-card card-template_type_default">
             <div class="element">
-                <img class="element__image  element__image_add" alt="Фото">
+                <img class="element__image  element__image_add" alt="">
                 <h3 class="element__title"></h3>
                 <button type="button" class="element__icon"></button>
                 <button type="button" class="element__delete"></button>
@@ -39,11 +38,11 @@
                 <button type="reset" class="popup__close"></button>
                 <h3 class="popup__title">Редактировать профиль</h3>
         
-                <input required minlength="2" maxlength="40" id="formName" class="form__input popup__input-name popup__input-name_info"
-                    placeholder="Жак-Ив Кусто">
+                <input required minlength="2" maxlength="40" name="inputName" id="formName" class="form__input popup__input-name popup__input-name_info"
+                    placeholder="Имя">
                 <span id="error-formName" class="form-name-error form__input-error"></span>
         
-                <input id="formClass" required minlength="2" maxlength="200" placeholder="Название"
+                <input id="formClass" required minlength="2" name="inputInfo" maxlength="200" placeholder="Вид деятельности"
                     class="form__input popup__input-name popup__input-name_more_heading">
                 <span id="error-formClass" class="form-class-error form__input-error"></span>
         
@@ -56,11 +55,11 @@
                 <button type="reset" class="popup__close"></button>
                 <h3 class="popup__title">Новое место</h3>
         
-                <input required minlength="2" maxlength="30" id="nameImage" placeholder="Название"
+                <input required minlength="2" maxlength="30" name="inputNameCard" id="nameImage" placeholder="Название"
                     class="form__input popup__input-name popup__input-name_item">
                 <span id="error-nameImage" class="form-item-error form__input-error"></span>
         
-                <input required id="formLink" type="url" placeholder="Ссылка на картинку"
+                <input required id="formLink" type="url" name="inputLink" placeholder="Ссылка на картинку"
                     class="form__input popup__input-name popup__input-name_more_link">
                 <span id="error-formLink" class="form-link-error form__input-error"></span>
         
@@ -77,7 +76,5 @@
     </main>
     <footer class="footer">© 2020 Mesto Russia
     </footer>
-    <!-- <script type="module" defer src="./scripts/index.js"></script> -->
-
 </body>
 </html>

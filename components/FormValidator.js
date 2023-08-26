@@ -1,12 +1,9 @@
-
 export class FormValidator {
   constructor(config, form) {
     this._config = config;
     this._form = form;
-   
   }
 
- 
   _formSubmitButtonChangeState = () => {
     const button = this._form.querySelector(this._config.submitButtonSelector);
     if (!this._form.checkValidity()) {
@@ -47,7 +44,6 @@ export class FormValidator {
     this._formSubmitButtonChangeState();
   };
 
-  
    enableValidation = () => {
     this._form.addEventListener("input", this._validateInputEvent, true);
   };
