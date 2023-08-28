@@ -1,11 +1,11 @@
 import { Popup } from "./Popup.js";
 
 export class PopupWithForm extends Popup {
-  constructor({ popupSelector, callBack }) {
-    super(popupSelector);
+  constructor({ popupElement, callBack }) {
+    super(popupElement);
     this._callBack = callBack;
-    this._popupSelector = popupSelector;
-    this._popupForm = popupSelector.querySelector(".form");
+    this._popupElement = popupElement;
+    this._popupForm = this._popupElement.querySelector(".form");
   }
 
   _getInputValues() {  // собирает данные всех полей формы
@@ -28,6 +28,6 @@ export class PopupWithForm extends Popup {
 
   close() {
     super.close();
-    this._formValues = "";
+    this._popupForm.reset();
   }
 }

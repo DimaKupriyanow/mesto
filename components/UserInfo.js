@@ -11,8 +11,8 @@ export class UserInfo {
     };
   }
 
-  setUserInfo({ nameInput, infoInput }) {  // принимает новые данные и добавляет их на страницу
-    this._name.textContent = nameInput.value;
-    this._info.textContent = infoInput.value;
+  setUserInfo( inputName, inputInfo ) { // принимает новые данные и добавляет их на страницу 
+    this._name.textContent = inputName;
+    this._info.textContent = inputInfo;
+    }
   }
-}
