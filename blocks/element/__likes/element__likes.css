@@ -1,12 +1,12 @@
 .element__likes {
-color: #000;
-width: 10px;
-height: 13px;
-font-size: 13px;
-font-weight: 400;
-line-height: normal;
-margin: 0;
-position: absolute;
-bottom: 15px;
-right: 24px;
+    color: #000;
+    width: 10px;
+    height: 13px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+    position: absolute;
+    bottom: 15px;
+    right: 24px;
 }
