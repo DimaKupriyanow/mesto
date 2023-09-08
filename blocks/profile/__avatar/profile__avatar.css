@@ -1,7 +1,8 @@
-@media screen and (max-width: 767px) {
-    .profile__avatar {
-        width: 168.75px;
-        height: 127.5px;
-        margin: 0 auto;
-    }
+.profile__avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
 }
+
+    

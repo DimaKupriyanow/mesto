@@ -1,0 +1,13 @@
+.profile__profile-avatar:hover::before {
+    content: "";
+    background: url(../../../images/VectorP.svg);
+    background-color: rgba(0, 0, 0, 0.80);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+}
+    
