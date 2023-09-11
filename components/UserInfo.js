@@ -1,18 +1,20 @@
 export class UserInfo {
-  constructor({ selectorName, selectorInfo }) {
+  constructor({ selectorName, selectorInfo, selectorAvatar }) {
     this._name = selectorName;
     this._info = selectorInfo;
+    this._avatar = selectorAvatar;
   }
 
-  getUserInfo({ nameInput, infoInput }) {  // возвращает обьект с данными пользователя
+  getUserInfo() {   // возвращает обьект с данными пользователя
     return {
-      name: (nameInput.textContent = this._name.value),
-      info: (infoInput.textContent = this._info.value),
+      name: this._name.textContent,
+      info: this._info.textContent,
     };
   }
 
-  setUserInfo( inputName, inputInfo ) { // принимает новые данные и добавляет их на страницу 
-    this._name.textContent = inputName;
-    this._info.textContent = inputInfo;
-    }
+  setUserInfo({ name, about, avatar }) {   // принимает новые данные и добавляет их на страницу
+    this._name.textContent = name;
+    this._info.textContent = about;
+    this._avatar.src = avatar;
   }
+}

@@ -27,6 +27,7 @@ export class Card {
     this._infoLikes = infoLikes;
     this._configUserId = configUserId._id;
   }
+  // не получается сделать логику нажатого лайка, при перезагрузке лайк все равно становится белый!
 
   _getTemplate() {
     const cardElement = document
@@ -42,77 +43,68 @@ export class Card {
     this._setEventListeners();
     this._setData();
     this._showIconDelete();
-    this._image = this._element.querySelector(".element__image");
-    this._likeButton = this._element.querySelector(".element__icon");
-    this._likeButtonActive = this._element.querySelector(".element__icon_active");
-    this._deleteButton = this._element.querySelector(".element__delete");
-    console.log(this._image)
 
     return this._element;
   }
 
   _setData() {
-    this._element.querySelector(".element__likes").textContent =
-      this._likes.length;
+    this._elementLikes.textContent = this._likes.length;
     this._element.querySelector(".element__title").textContent = this._name;
-    const image = this._element.querySelector(".element__image");
-    image.src = this._link;
-    image.alt = this._name;
-
+    this._image.src = this._link;
+    this._image.alt = this._name;
   }
 
   _showIconDelete() {
-    if (this._configUserId === this._idUser) {
-    } else if (this._configUserId != this._idUser) {
-      this._element.querySelector(".element__delete").remove();
-
+    if (this._configUserId != this._idUser) {
+      this._deleteButton.remove();
     }
   }
 
   _setEventListeners() {
-  
-    this._element.querySelector(".element__icon")    
-    .addEventListener("click", (evt) => {
-        this._buttonLikes(evt);
-        this._handleLike(evt);
-      });
+    this._image = this._element.querySelector(".element__image");
+    this._elementLikes = this._element.querySelector(".element__likes");
+    this._deleteButton = this._element.querySelector(".element__delete");
+    this._likeButton = this._element.querySelector(".element__icon");
 
-   
-      this._element.querySelector(".element__delete").addEventListener("click", () => {
-        this._handlePopup();
-        this._handleSubmitDelete();
-      });
+    this._likeButton.addEventListener("click", (evt) => {
+      this._buttonLikes(evt);
+    });
 
-   
-      // this._element.querySelector(".element__image")
-      this._image.addEventListener("click", (evt) => {
-        this._handleCardClick(evt);
-      });
+    this._deleteButton.addEventListener("click", () => {
+      this._handlePopup();
+    });
+
+    this._image.addEventListener("click", (evt) => {
+      this._handleCardClick(evt);
+    });
   }
 
-  _handleSubmitDelete() {
-    const buttonDeleteSubmit = document
-      .querySelector(".popup__button-submit_delete");
-      console.log(buttonDeleteSubmit);
-      buttonDeleteSubmit.addEventListener("click", (evt) => {
-        if (buttonDeleteSubmit === evt.target) {
-          this._elementDelete();
-          this._handleDelete(this._id);
-        }
-      });
+  handleSubmitDelete(button) {
+    button.addEventListener("click", (evt) => {
+      if (button === evt.target) {
+        this._handleDelete(this._id);
+      }
+    });
   }
 
-  _handleLike() {
-    this._element.querySelector(".element__icon").classList.toggle(".element__icon_active");
+  handleLike() {
+    this._likeButton.classList.toggle("element__icon_active");
+    this._elementLikes.textContent++;
   }
 
-  _elementDelete() {
+  handleDeleteLike() {
+    this._likeButton.classList.remove("element__icon_active");
+    this._elementLikes.textContent--;
+  }
+
+  elementDelete() {
     this._element.remove();
     this._element = "";
   }
 
-  _buttonLikes(evt) {      // добавление лайка и удаление
-    if (evt.target === this._likeButtonActive) {
+  _buttonLikes(evt) {   // добавление лайка и удаление
+    const elementIconActive = this._element.querySelector(".element__icon_active");
+    if (evt.target === elementIconActive) {
       this._deleteLikes(this._id);
     } else if (evt.target === this._likeButton) {
       this._setLikes(this._id);
