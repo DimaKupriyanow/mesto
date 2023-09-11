@@ -27,7 +27,6 @@ export class Card {
     this._infoLikes = infoLikes;
     this._configUserId = configUserId._id;
   }
-  // не получается сделать логику нажатого лайка, при перезагрузке лайк все равно становится белый!
 
   _getTemplate() {
     const cardElement = document
@@ -43,8 +42,14 @@ export class Card {
     this._setEventListeners();
     this._setData();
     this._showIconDelete();
+    this.like();
 
     return this._element;
+  }
+
+  like() {
+    if (this._likes.some((likes) => likes._id === this._configUserId))
+      this._likeButton.classList.toggle("element__icon_active");
   }
 
   _setData() {
@@ -102,8 +107,11 @@ export class Card {
     this._element = "";
   }
 
-  _buttonLikes(evt) {   // добавление лайка и удаление
-    const elementIconActive = this._element.querySelector(".element__icon_active");
+  _buttonLikes(evt) {
+    // добавление лайка и удаление
+    const elementIconActive = this._element.querySelector(
+      ".element__icon_active"
+    );
     if (evt.target === elementIconActive) {
       this._deleteLikes(this._id);
     } else if (evt.target === this._likeButton) {
