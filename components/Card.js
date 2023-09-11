@@ -42,6 +42,11 @@ export class Card {
     this._setEventListeners();
     this._setData();
     this._showIconDelete();
+    this._image = this._element.querySelector(".element__image");
+    this._likeButton = this._element.querySelector(".element__icon");
+    this._likeButtonActive = this._element.querySelector(".element__icon_active");
+    this._deleteButton = this._element.querySelector(".element__delete");
+    console.log(this._image)
 
     return this._element;
   }
@@ -53,33 +58,34 @@ export class Card {
     const image = this._element.querySelector(".element__image");
     image.src = this._link;
     image.alt = this._name;
+
   }
 
   _showIconDelete() {
     if (this._configUserId === this._idUser) {
     } else if (this._configUserId != this._idUser) {
       this._element.querySelector(".element__delete").remove();
+
     }
   }
 
   _setEventListeners() {
-    this._element
-      .querySelector(".element__icon")
-      .addEventListener("click", (evt) => {
+  
+    this._element.querySelector(".element__icon")    
+    .addEventListener("click", (evt) => {
         this._buttonLikes(evt);
         this._handleLike(evt);
       });
 
-    this._element
-      .querySelector(".element__delete")
-      .addEventListener("click", () => {
+   
+      this._element.querySelector(".element__delete").addEventListener("click", () => {
         this._handlePopup();
         this._handleSubmitDelete();
       });
 
-    this._element
-      .querySelector(".element__image")
-      .addEventListener("click", (evt) => {
+   
+      // this._element.querySelector(".element__image")
+      this._image.addEventListener("click", (evt) => {
         this._handleCardClick(evt);
       });
   }
@@ -97,9 +103,7 @@ export class Card {
   }
 
   _handleLike() {
-    this._element
-      .querySelector(".element__icon")
-      .classList.toggle("element__icon_active");
+    this._element.querySelector(".element__icon").classList.toggle(".element__icon_active");
   }
 
   _elementDelete() {
@@ -108,11 +112,9 @@ export class Card {
   }
 
   _buttonLikes(evt) {      // добавление лайка и удаление
-    const elementIcon = this._element.querySelector(".element__icon");
-    const elementIconActive = this._element.querySelector(".element__icon_active");
-    if (evt.target === elementIconActive) {
+    if (evt.target === this._likeButtonActive) {
       this._deleteLikes(this._id);
-    } else if (evt.target === elementIcon) {
+    } else if (evt.target === this._likeButton) {
       this._setLikes(this._id);
     }
   }

@@ -97,7 +97,7 @@ const createCard = (data) => {
         apiCard
           .deleteCard(id)
           .then(data => {
-            console.log(data)
+            // console.log(data)
           })
           .catch((err) => {
             console.log(err);

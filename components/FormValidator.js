@@ -2,16 +2,16 @@ export class FormValidator {
   constructor(config, form) {
     this._config = config;
     this._form = form;
+    this._buttonSubmit = this._form.querySelector(this._config.submitButtonSelector);
   }
 
   _formSubmitButtonChangeState = () => {
-    const button = this._form.querySelector(this._config.submitButtonSelector);
     if (!this._form.checkValidity()) {
-      button.setAttribute("disabled", true);
-      button.classList.add(this._config.inactiveButtonClass);
+      this._buttonSubmit.setAttribute("disabled", true);
+      this._buttonSubmit.classList.add(this._config.inactiveButtonClass);
     } else {
-      button.removeAttribute("disabled");
-      button.classList.remove(this._config.inactiveButtonClass);
+      this._buttonSubmit.removeAttribute("disabled");
+      this._buttonSubmit.classList.remove(this._config.inactiveButtonClass);
     }
   };
 
