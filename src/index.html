@@ -35,7 +35,6 @@
     </div>
         <div class="popup popup_type_more-info">
             <form id="popupInfo" name="formMoreInfo" novalidate class="form popup__container popup__container_info">
-        
                 <button type="reset" class="popup__close"></button>
                 <h3 class="popup__title">Редактировать профиль</h3>
                 <input required minlength="2" maxlength="40" name="inputName" id="formName" class="form__input popup__input-name popup__input-name_info"
@@ -57,7 +56,7 @@
                 <input required id="formLink" type="url" name="inputLink" placeholder="Ссылка на картинку"
                     class="form__input popup__input-name popup__input-name_more_link">
                 <span id="error-formLink" class="form-link-error form__input-error"></span>
-                <button id="buttonInputItem" disabled type="submit" class="popup__button-submit popup__button-submit_add">Создать</button>
+                <button id="buttonInputItem" disabled type="submit" class="popup__button-submit popup__button-submit_avatar">Создать</button>
             </form>
         </div>
         <div class="popup popup_type_more-image">
@@ -68,11 +67,11 @@
             </div>
         </div>              
         <div class="popup popup_delete-card">
-            <div class="popup__container popup__container-delete">
+            <form class="popup__container popup__container-delete">
                 <h3 class="popup__title popup__title_delete">Вы уверены?</h3>
                 <button class="popup__button-submit popup__button-submit_delete">Да</button>
                 <button type="reset" class="popup__close"></button>
-        </div>
+        </form>
         </div>
         <div class="popup popup_profile-avatar">
             <form novalidate id="popupAvatar" name="formAvatar" class="form popup__container popup__container-avatar">
@@ -80,7 +79,7 @@
                 <input required id="formLinkAvatar" type="url" name="inputLinkAvatar" placeholder="Ссылка на аватар"
                     class="form__input popup__input-name">
                     <span id="error-formLinkAvatar" class="form-link-error form__input-error"></span>
-                <button class="popup__button-submit popup__button-submit_avatar">Сохранить</button>
+                <button disabled type="submit" class="popup__button-submit popup__button-submit_avatar">Сохранить</button>
                 <button type="reset" class="popup__close"></button>
         </form>
         </div>

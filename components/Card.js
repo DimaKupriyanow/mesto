@@ -84,22 +84,14 @@ export class Card {
     });
   }
 
-  handleSubmitDelete(button) {
-    button.addEventListener("click", (evt) => {
-      if (button === evt.target) {
-        this._handleDelete(this._id);
-      }
-    });
-  }
-
-  handleLike() {
+  handleLike(res) {
     this._likeButton.classList.toggle("element__icon_active");
-    this._elementLikes.textContent++;
+    this._elementLikes.textContent = res.likes.length;
   }
 
-  handleDeleteLike() {
+  handleDeleteLike(res) {
     this._likeButton.classList.remove("element__icon_active");
-    this._elementLikes.textContent--;
+    this._elementLikes.textContent = res.likes.length;
   }
 
   elementDelete() {
@@ -109,9 +101,7 @@ export class Card {
 
   _buttonLikes(evt) {
     // добавление лайка и удаление
-    const elementIconActive = this._element.querySelector(
-      ".element__icon_active"
-    );
+    const elementIconActive = this._element.querySelector(".element__icon_active");
     if (evt.target === elementIconActive) {
       this._deleteLikes(this._id);
     } else if (evt.target === this._likeButton) {

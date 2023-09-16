@@ -5,6 +5,17 @@ export class FormValidator {
     this._buttonSubmit = this._form.querySelector(this._config.submitButtonSelector);
   }
 
+  disableSubmitButton() {   // не активный submit
+    this._buttonSubmit.setAttribute("disabled", true);
+    this._buttonSubmit.classList.add(this._config.inactiveButtonClass);
+  }
+
+  deleteErrorElement = () => { // удаление текста ошибки
+    this._form.querySelectorAll(".form__input-error").forEach((input) => {
+        input.textContent = "";
+      });
+    };
+
   _formSubmitButtonChangeState = () => {
     if (!this._form.checkValidity()) {
       this._buttonSubmit.setAttribute("disabled", true);
@@ -44,7 +55,7 @@ export class FormValidator {
     this._formSubmitButtonChangeState();
   };
 
-   enableValidation = () => {
+  enableValidation = () => {
     this._form.addEventListener("input", this._validateInputEvent, true);
   };
 }
