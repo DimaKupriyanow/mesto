@@ -3,6 +3,7 @@ export class FormValidator {
     this._config = config;
     this._form = form;
     this._buttonSubmit = this._form.querySelector(this._config.submitButtonSelector);
+    this._formError = this._form.querySelectorAll(this._config.inputErrorClass);
   }
 
   disableSubmitButton() {   // не активный submit
@@ -10,11 +11,11 @@ export class FormValidator {
     this._buttonSubmit.classList.add(this._config.inactiveButtonClass);
   }
 
-  deleteErrorElement = () => { // удаление текста ошибки
-    this._form.querySelectorAll(".form__input-error").forEach((input) => {
-        input.textContent = "";
-      });
-    };
+  deleteErrorElement = () => {  // удаление текста ошибки
+    this._formError.forEach((elem) => {
+      elem.textContent = "";
+    });
+  };
 
   _formSubmitButtonChangeState = () => {
     if (!this._form.checkValidity()) {
